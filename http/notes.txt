@@ -1,0 +1,80 @@
+The HTTP is the name of a protocol employed to transfer data and resources like HTML.
+It uses a Client-Server structure, which means that the data request is initialized 
+by the client.
+
+The data sent by a Client is called REQUEST
+The data sent by a server is called RESPONSE
+
+This dynamic comunication occurs under the TCP which is a Transmission Control protocol.
+Which allows to keep an order on the data packages exchange
+
+This comunication also occurs under the TLS which is a Transport Layer Security 
+formerly known as Secure Sockets Layer or SSL. This a protocol used by applications to
+communicate securely accross a network
+
+Theoretically any reliable protocol can be used
+
+This client-server communication can occur with agents or intermediaries in between 
+also called proxy
+
+- CLIENT: Is whomever requires the data. It can be a human user or a bot
+- SERVER: Is what provides the data
+- PROXIES: Any intermediary between a CLIENT and a SERVER. Manages the HTTP messages
+
+NOTE: This is a state-less protocol. Which means that it doesn't gather data of 
+the state of a message. If a message is recieved and modified on the client side
+there wont be a response unless the client actively sends data specifying such change
+
+HTTP doesn't require a constant connexion between the client and the server. HTTP 
+doesn't contemplate such state
+
+From HTTP several elements can be contrlled:
+- Cache (Data downloaded and stored on the client hardware meant to be accessed 
+everytime and HTTP asks for such data) Server can set what to store and for how
+much time. Client as well can set wether a document can be ignored
+
+- Privacy: Data can be shared only between websites with the same origin. This 
+detail can be passed through 'HTTP headers'
+
+- Authentication: Using 'HTTP headers' a request can be autentified
+
+- Proxies and Tunneling: There can be used HTTP proxies to hide a IP within a intranet
+
+- Sessions: HTTP can pass info between client-server info that defines a Sessions
+
+HTTP FLUX:
+- 1 Create a TCP connection to make a mean to send REQUESTS and RESPONSES
+- 2 Make an HTTP REQUEST to a server
+- 3 Recieve a RESPONSE from the server
+- 4 Close and reuse of the conection for further communication
+Note: With HTTP pipelining several requests can be sent before getting a first response
+
+HTTP MESSAGES:
+There are two types of HTTP mesages: REQUESTS and RESPONSES
+
+REQUESTS: These are composed by 5 elements:
+- Method: indicates the type of operation that the client wants to make
+    - GET: Requests a  a representation of the specified resource. Is used only to retrive data
+    - HEAD: Asks for a particular and limited response compared to the GET method. Is as well used 
+      only to retrive data.
+    - POST: Submits an entity to the specified sreource, often causing a change in state or side 
+      effects on the server
+    - PUT: Replaces all current representation of the target resource with the request payload
+    - DELETE: Deletes the specified resource
+    - CONNECT: Stablishes two way connection and it can also be used to bouild a tunnel to the 
+      server identified by the target resource
+    - OPTIONS: Describes the communication options for the target resource
+    - TRACE: Performs a message loop-back # REQUITRD DEEPER RESEARCH. IT CAN BE USED WITH MALICIOUS PORPUSES
+    - PATCH: Apply partial modifications to a resource
+- Path: Is the address of the requested resource
+- HTTP protocol version
+- Headers: Additional info sent to the server
+- Body: Used to send particular data (like when using POST). This element can or not be 
+  present on a request
+
+- RESPONSE:
+- HTTP protocol version
+- Status code
+- Status message
+- Headers: Additional info sent to the client
+- Resource: Can be a file, a full website, etc.
